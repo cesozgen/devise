@@ -58,7 +58,7 @@ module Devise
       def confirm!
         pending_any_confirmation do
           if confirmation_period_expired?
-            self.errors.add(:email, :confirmation_period_expired,
+            self.errors.add(:confirmation_token, :confirmation_period_expired,
               :period => Devise::TimeInflector.time_ago_in_words(self.class.confirm_within.ago))
             return false
           end
